@@ -1,0 +1,34 @@
+.parent {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 5% 95%;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.parent2 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100%;
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+}
+.div3 { grid-area: 1 / 1 / 2 / 2; }
+.div4 { grid-area: 1 / 2 / 2 / 3; }
+
+#wasm3dwindow {
+  height: 100%;
+  width: 100%;
+}

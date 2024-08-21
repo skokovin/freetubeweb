@@ -1,0 +1,53 @@
+<div class="parent pt-2 ps-2 pe-2 pb-2">
+  <div class="div1">
+    <button (click)="LoadStepFile()" type="button" class="btn btn-primary">Primary</button>
+  </div>
+  <div class="div2">
+    <div class="parent2 ">
+      <div class="div3 container-fluid overflow-auto overflow-x-hidden">
+        <div class="row">
+          D={{ getOutD() }}; Total Lenght = {{ Math.round(totlen) }} mm.
+        </div>
+        <div class="row">
+          <table class="table table-hover  table-bordered">
+            <thead class="table-success">
+            <tr>
+              <th>L</th>
+              <th>R</th>
+              <th>A</th>
+              <th>CLR</th>
+            </tr>
+            </thead>
+            <tbody>
+              @for (cnc of pipe_bend_cncs; track cnc) {
+                <tr>
+                  <td (click)="onCncTableRowClick1(cnc)"
+                      [ngClass]="cnc.id1===selected_id && selected_id!=0 ? 'table-primary':'' ">{{ cnc.l }}
+                  </td>
+                  <td (click)="onCncTableRowClick1(cnc)"
+                      [ngClass]="cnc.id1===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.r }}
+                  </td>
+                  <td (click)="onCncTableRowClick2(cnc)"
+                      [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.a }}
+                  </td>
+                  <td (click)="onCncTableRowClick2(cnc)"
+                      [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.clr }}
+                  </td>
+                </tr>
+              }
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="div4">
+        <div class="container-fluid p-0 m-0" #wasm3dwindow id="wasm3dwindow"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<input type="file" #fileinput (change)="onChangeFileInput()" accept=".stp,.step">
+
+
