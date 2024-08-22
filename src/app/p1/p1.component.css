@@ -1,9 +1,28 @@
+.bungee-tint-regular {
+  font-family: "Bungee Tint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+.russo-one-regular {
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: cornflowerblue;
+}
+
+.mdc-tooltip__surface {
+  color: black !important;
+  background-color: #fae6d7 !important;
+}
+
 .parent {
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 7% 93%;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }

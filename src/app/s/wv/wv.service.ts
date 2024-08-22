@@ -19,13 +19,32 @@ declare global {
 
 export class WvService {
   private wasmURL = "assets/freetubew/main_bg.wasm";
+  private demosURL = "assets/demos/";
   private wa!: WA.InitOutput;
   wa_loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
-  tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
+  static pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
+  static tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
   static selected_id$: BehaviorSubject<number> = new BehaviorSubject(0);
+  static obj_file: Uint8Array = new Uint8Array();
+
   constructor(private http: HttpClient) {
     window.wvservice = this;
+  }
+
+  load_demo_file(num: string) {
+    this.http.get(this.demosURL + num + '.stp', {responseType: 'blob'}).subscribe(async (response) => {
+      response.arrayBuffer().then(buffer => {
+        const binary: Uint8Array = new Uint8Array(buffer);
+        this.load_stp_file(binary);
+      })
+    });
+  }
+
+  reset() {
+    WvService.pipe_bend_cncs$.next(new Array<PipeBendCnc>());
+    WvService.tot_len$.next(0.0);
+    WvService.selected_id$.next(0);
+    WvService.obj_file=(new Uint8Array());
   }
 
   run_app() {
@@ -48,12 +67,13 @@ export class WvService {
   }
 
   load_stp_file(arr: Uint8Array) {
+    this.reset();
     console.log("LOAD_ARR " + arr.length);
     read_step_file(arr);
   }
 
-  on_select_by_id(id:number){
-   select_by_id(id);
+  on_select_by_id(id: number) {
+    select_by_id(id);
   }
 
 
@@ -71,23 +91,23 @@ export class WvService {
         let a = cmds[i + 5] / 1000.0;
         let clr = cmds[i + 6] / 1000.0;
         let outd = cmds[i + 7] / 1000.0;
-        let cnc = new PipeBendCnc(id1, id2, l, lt, r, a, clr,outd);
+        let cnc = new PipeBendCnc(id1, id2, l, lt, r, a, clr, outd);
         counter = counter + 1;
-        totlen=totlen+l+lt;
+        totlen = totlen + l + lt;
         arr.push(cnc);
         //console.log("CMDS " + id + " " + opcode + " " + value     );
       }
     }
-    this.pipe_bend_cncs$.next(arr);
-    this.tot_len$.next(totlen);
+    WvService.pipe_bend_cncs$.next(arr);
+    WvService.tot_len$.next(totlen);
   }
 
   private pipe_obj_file(in_obj_file: Uint8Array) {
-    //console.log("OBJ FILE "+obj_file.length);
-    //this.obj_file = in_obj_file;
+    //console.log("OBJ FILE "+in_obj_file.length);
+    WvService.obj_file = in_obj_file;
   }
 
-  private selected_by_id(id: number){
+  private selected_by_id(id: number) {
     WvService.selected_id$.next(id);
   }
 

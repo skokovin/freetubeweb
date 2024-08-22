@@ -10,7 +10,7 @@ import {P1Component} from "./p1/p1.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'freetubew';
+  title = 'BEND INFO EXTRACTOR';
 
   handleError(error: any): void {
     if (error['message'] && (error.message as string).startsWith("Using exceptions for control flow,")) {

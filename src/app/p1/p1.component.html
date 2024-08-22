@@ -1,44 +1,134 @@
 <div class="parent pt-2 ps-2 pe-2 pb-2">
+
+
   <div class="div1">
-    <button (click)="LoadStepFile()" type="button" class="btn btn-primary">Primary</button>
+
+    @if (wa_loaded) {
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <i class="bungee-tint-regular bi bi-magnet-fill"></i>
+          <a class="navbar-brand bungee-tint-regular ms-3">BEND INFO EXTRACTOR</a>
+          <button (click)="LoadStepFile()" type="button" class="btn btn-outline-primary  ms-3"
+                  matTooltipPosition="below" matTooltip="Upload STP file to extract centerline"
+          >
+            <i class="bi bi-folder2-open"></i>
+            STP
+          </button>
+          <button (click)="saveCsvFile()" type="button" class="btn btn-outline-primary  ms-3"
+                  matTooltipPosition="below" matTooltip="Download CSV with CNC operations"
+          >
+            <i class="bi bi-cloud-download"></i>
+            CSV
+          </button>
+          <button
+            matTooltipPosition="below" matTooltip="Download OBJ file to check extracted pipeline"
+            (click)="saveObjFile()" type="button" class="btn btn-outline-primary  ms-3">
+            <i class="bi bi-cloud-download"></i>
+            OBJ
+          </button>
+          <button
+            matTooltipPosition="below" matTooltip="Download all demo original STP files"
+            (click)=" downloadZipFile()" type="button" class="btn btn-outline-primary  ms-3">
+            <i class="bi bi-cloud-download"></i>
+            ZIP
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+          </div>
+          <button [cdkCopyToClipboard]="email" type="button" class="btn btn-outline-primary  me-1"
+                  matTooltipPosition="below"
+                  matTooltip="Copy My email to clipboard! Please do not hesitate to contact me."
+          >
+            <i class="bi bi-clipboard"></i>
+          </button>
+          <a class="russo-one-regular me-3">{{ email }}</a>
+
+
+          <div class="btn-group" role="group" aria-label="Basic mixed styles example"
+               matTooltipPosition="below" matTooltip="Click to try some demo files."
+          >
+            <button (click)="downloademoFile('1')" type="button" class="btn btn-primary">demo1</button>
+            <button (click)="downloademoFile('2')" type="button" class="btn btn-secondary">demo2</button>
+            <button (click)="downloademoFile('3')" type="button" class="btn btn-success">demo3</button>
+            <button (click)="downloademoFile('4')" type="button" class="btn btn-danger">demo4</button>
+            <button (click)="downloademoFile('5')" type="button" class="btn btn-warning">demo5</button>
+            <button (click)="downloademoFile('6')" type="button" class="btn btn-success">demo6</button>
+            <button (click)="downloademoFile('7')" type="button" class="btn btn-info">demo7</button>
+            <button (click)="downloademoFile('8')" type="button" class="btn btn-light">demo8</button>
+            <button (click)="downloademoFile('9')" type="button" class="btn btn-dark">demo9</button>
+          </div>
+        </div>
+      </nav>
+    } @else {
+      <div class="russo-one-regular">
+        Loading...
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-info" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    }
   </div>
   <div class="div2">
     <div class="parent2 ">
       <div class="div3 container-fluid overflow-auto overflow-x-hidden">
-        <div class="row">
-          D={{ getOutD() }}; Total Lenght = {{ Math.round(totlen) }} mm.
-        </div>
-        <div class="row">
-          <table class="table table-hover  table-bordered">
-            <thead class="table-success">
-            <tr>
-              <th>L</th>
-              <th>R</th>
-              <th>A</th>
-              <th>CLR</th>
-            </tr>
-            </thead>
-            <tbody>
-              @for (cnc of pipe_bend_cncs; track cnc) {
-                <tr>
-                  <td (click)="onCncTableRowClick1(cnc)"
-                      [ngClass]="cnc.id1===selected_id && selected_id!=0 ? 'table-primary':'' ">{{ cnc.l }}
-                  </td>
-                  <td (click)="onCncTableRowClick1(cnc)"
-                      [ngClass]="cnc.id1===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.r }}
-                  </td>
-                  <td (click)="onCncTableRowClick2(cnc)"
-                      [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.a }}
-                  </td>
-                  <td (click)="onCncTableRowClick2(cnc)"
-                      [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.clr }}
-                  </td>
-                </tr>
-              }
+        @if (wa_loaded) {
+          <div class="row russo-one-regular">
+            D={{ getOutD() }}mm. Lenght = {{ Math.round(totlen) }}mm.
+          </div>
+          <div class="row">
+            <table class="table table-hover  table-bordered">
+              <thead class="table-success">
+              <tr>
+                <th>L</th>
+                <th>R</th>
+                <th>A</th>
+                <th>CLR</th>
+              </tr>
+              </thead>
+              <tbody>
+                @for (cnc of pipe_bend_cncs; track cnc) {
+                  <tr>
+                    <td (click)="onCncTableRowClick1(cnc)"
+                        [ngClass]="cnc.id1===selected_id && selected_id!=0 ? 'table-primary':'' ">{{ cnc.l }}
+                    </td>
+                    <td (click)="onCncTableRowClick1(cnc)"
+                        [ngClass]="cnc.id1===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.r }}
+                    </td>
+                    <td (click)="onCncTableRowClick2(cnc)"
+                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.a }}
+                    </td>
+                    <td (click)="onCncTableRowClick2(cnc)"
+                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.clr }}
+                    </td>
+                  </tr>
+                }
 
-            </tbody>
-          </table>
-        </div>
+              </tbody>
+            </table>
+          </div>
+        }
+
       </div>
       <div class="div4">
         <div class="container-fluid p-0 m-0" #wasm3dwindow id="wasm3dwindow"></div>
