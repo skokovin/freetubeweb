@@ -18,7 +18,7 @@ declare global {
 
 
 export class WvService {
-  private wasmURL = "public/freetubew/main_bg.wasm";
+  private wasmURL = "assets/freetubew/main_bg.wasm";
   private wa!: WA.InitOutput;
   wa_loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
