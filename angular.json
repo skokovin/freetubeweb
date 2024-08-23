@@ -22,15 +22,16 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "public"
+              },
               {
                 "glob": "**/*",
                 "input": "./node_modules/freetubew/",
-                "output": "./assets/freetubew/"
+                "output": "public/freetubew/"
               }
             ],
-
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
@@ -42,8 +43,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "5000kB",
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",

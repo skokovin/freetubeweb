@@ -1,9 +1,11 @@
-import {AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject, ViewChild, ViewEncapsulation} from '@angular/core';
 import {WvService} from "../s/wv/wv.service";
 import {PipeBendCnc} from "../model/pipe-bend-cnc";
 import {NgClass} from "@angular/common";
 import {CdkCopyToClipboard} from "@angular/cdk/clipboard";
 import {MatTooltip} from "@angular/material/tooltip";
+import {Analytics} from "@angular/fire/analytics";
+
 
 @Component({
   selector: 'app-p1',
@@ -19,6 +21,8 @@ import {MatTooltip} from "@angular/material/tooltip";
 })
 export class P1Component implements AfterViewInit {
   protected readonly Math = Math;
+  private analytics: Analytics = inject(Analytics);
+
   email="sophistry.no@gmail.com";
   wa_loaded = false;
   totlen = 0.0;

@@ -18,8 +18,8 @@ declare global {
 
 
 export class WvService {
-  private wasmURL = "assets/freetubew/main_bg.wasm";
-  private demosURL = "assets/demos/";
+  private wasmURL = "public/freetubew/main_bg.wasm";
+  private demosURL = "demos/";
   private wa!: WA.InitOutput;
   wa_loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   static pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
@@ -44,6 +44,7 @@ export class WvService {
     WvService.pipe_bend_cncs$.next(new Array<PipeBendCnc>());
     WvService.tot_len$.next(0.0);
     WvService.selected_id$.next(0);
+    this.on_select_by_id(0);
     WvService.obj_file=(new Uint8Array());
   }
 
