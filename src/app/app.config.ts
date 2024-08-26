@@ -10,8 +10,38 @@ import {FirebaseApp, initializeApp, provideFirebaseApp} from '@angular/fire/app'
 import {getAnalytics, initializeAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
 import {config} from "rxjs";
 import {AnalyticsSettings} from "@firebase/analytics";
+import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
 
 
+
+
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    BrowserAnimationsModule,
+    MatTooltipModule,
+    provideZoneChangeDetection({eventCoalescing: true}),
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
+    {
+      provide: ErrorHandler,
+      useClass: AppComponent
+    },
+    provideFirebaseApp(() => initializeApp({
+      "projectId": "bend-extractor",
+      "appId": "1:355924148512:web:a8a9bd76870726afa5d745",
+      "storageBucket": "bend-extractor.appspot.com",
+      "apiKey": "AIzaSyDYhwXoAF20OhHB6hil8-Kj5Z63oE91ZOc",
+      "authDomain": "bend-extractor.firebaseapp.com",
+      "messagingSenderId": "355924148512",
+      "measurementId": "G-JTPQYBPCSY"
+    })),
+    provideAnalytics(() =>getAnalytics()),
+    ScreenTrackingService,
+  ]
+};
+
+/*
 export const appConfig: ApplicationConfig = {
   providers: [
     BrowserAnimationsModule,
@@ -33,43 +63,16 @@ export const appConfig: ApplicationConfig = {
       "measurementId": "G-JTPQYBPCSY"
     })),
     provideAnalytics(() => initializeAnalytics(inject(FirebaseApp),
-        {
-          config: {
-            cookie_domain: window.location.hostname,
-            cookie_flags: "SameSite=None;Secure"
-          }
+      {
+        config: {
+          cookie_domain: window.location.hostname,
+          cookie_flags: "SameSite=None;Secure"
         }
-      )
-    ),
+      }
+    )),
     ScreenTrackingService,
+
   ]
 };
 
-/*
-
-export const appConfig: ApplicationConfig = {
-  providers: [
-    BrowserAnimationsModule,
-    MatTooltipModule,
-    provideZoneChangeDetection({eventCoalescing: true}),
-    provideRouter(routes),
-    provideHttpClient(withFetch()),
-    {
-      provide: ErrorHandler,
-      useClass: AppComponent
-    },
-    provideFirebaseApp(() => initializeApp({
-      "projectId": "bend-extractor",
-      "appId": "1:355924148512:web:a8a9bd76870726afa5d745",
-      "storageBucket": "bend-extractor.appspot.com",
-      "apiKey": "AIzaSyDYhwXoAF20OhHB6hil8-Kj5Z63oE91ZOc",
-      "authDomain": "bend-extractor.firebaseapp.com",
-      "messagingSenderId": "355924148512",
-      "measurementId": "G-JTPQYBPCSY"
-    })),
-    provideAnalytics(() => getAnalytics()
-    ),
-    ScreenTrackingService,
-  ]
-};
 */

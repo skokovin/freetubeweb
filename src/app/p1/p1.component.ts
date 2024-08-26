@@ -4,7 +4,9 @@ import {PipeBendCnc} from "../model/pipe-bend-cnc";
 import {NgClass} from "@angular/common";
 import {CdkCopyToClipboard} from "@angular/cdk/clipboard";
 import {MatTooltip} from "@angular/material/tooltip";
-import {Analytics} from "@angular/fire/analytics";
+import {Analytics, logEvent} from "@angular/fire/analytics";
+import {AngularFireAnalytics, AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
+import {FirebaseApp} from "@angular/fire/app";
 
 
 @Component({
@@ -13,7 +15,8 @@ import {Analytics} from "@angular/fire/analytics";
   imports: [
     NgClass,
     CdkCopyToClipboard,
-    MatTooltip
+    MatTooltip,
+
   ],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './p1.component.html',
@@ -21,8 +24,10 @@ import {Analytics} from "@angular/fire/analytics";
 })
 export class P1Component implements AfterViewInit {
   protected readonly Math = Math;
-  private analytics: Analytics = inject(Analytics);
+ private analytics: Analytics=inject(Analytics);
 
+
+  //private analytics2 = inject(analyticsInstanceFactory) as AngularFireAnalytics;
   email="sophistry.no@gmail.com";
   wa_loaded = false;
   totlen = 0.0;
@@ -54,6 +59,9 @@ export class P1Component implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.wv.load_wa();
+    logEvent(this.analytics, 'notification_received');
+     //, readonly analytics: AngularFireAnalytics
+    //  this.analytics.logEvent('app_open', {"component"
   }
 
   LoadStepFile() {
