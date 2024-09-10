@@ -96,7 +96,7 @@ export class WvService {
         counter = counter + 1;
         totlen = totlen + l + lt;
         arr.push(cnc);
-        //console.log("CMDS " + id + " " + opcode + " " + value     );
+        console.log("CMDS " + id1 + " " + a + " " + lt     );
       }
     }
     WvService.pipe_bend_cncs$.next(arr);

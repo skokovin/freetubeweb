@@ -102,7 +102,7 @@
               <tr>
                 <th>L</th>
                 <th>R</th>
-                <th>A</th>
+                <th>A (L)</th>
                 <th>CLR</th>
               </tr>
               </thead>
@@ -116,7 +116,8 @@
                         [ngClass]="cnc.id1===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.r }}
                     </td>
                     <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.a }}
+                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">
+                      {{ cnc.a }} ({{cnc.lt}})
                     </td>
                     <td (click)="onCncTableRowClick2(cnc)"
                         [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.clr }}
