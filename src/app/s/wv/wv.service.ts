@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import * as WA from 'freetubew';
 import {BehaviorSubject} from "rxjs";
-import {read_step_file, runrust, select_by_id} from "freetubew";
+import {do_bend, read_step_file, read_unbend_file, runrust, select_by_id} from "freetubew";
 import {PipeBendCnc} from "../../model/pipe-bend-cnc";
 
 declare global {
@@ -27,6 +27,8 @@ export class WvService {
   static selected_id$: BehaviorSubject<number> = new BehaviorSubject(0);
   static obj_file: Uint8Array = new Uint8Array();
 
+  stp_file: BehaviorSubject<Uint8Array>= new BehaviorSubject(new Uint8Array());
+
   constructor(private http: HttpClient) {
     window.wvservice = this;
   }
@@ -43,7 +45,7 @@ export class WvService {
   reset() {
     WvService.pipe_bend_cncs$.next(new Array<PipeBendCnc>());
     WvService.tot_len$.next(0.0);
-    WvService.selected_id$.next(0);
+    WvService.selected_id$.next(-1);
     this.on_select_by_id(0);
     WvService.obj_file=(new Uint8Array());
   }
@@ -70,7 +72,21 @@ export class WvService {
   load_stp_file(arr: Uint8Array) {
     this.reset();
     console.log("LOAD_ARR " + arr.length);
+    this.stp_file.next(arr);
     read_step_file(arr);
+  }
+
+  load_unbend_stp_file(arr: Uint8Array) {
+    this.reset();
+    console.log("LOAD_ARR " + arr.length);
+    read_unbend_file(arr);
+  }
+
+  next_bend_step(){
+    do_bend();
+    if(WvService.selected_id$.value<WvService.pipe_bend_cncs$.value.length*2){
+      this.on_select_by_id(WvService.selected_id$.value +1);
+    }
   }
 
   on_select_by_id(id: number) {
@@ -96,7 +112,7 @@ export class WvService {
         counter = counter + 1;
         totlen = totlen + l + lt;
         arr.push(cnc);
-        console.log("CMDS " + id1 + " " + a + " " + lt     );
+        //console.log("CMDS " + id1 + " " + a + " " + lt     );
       }
     }
     WvService.pipe_bend_cncs$.next(arr);

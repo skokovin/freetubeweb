@@ -33,6 +33,13 @@
             ZIP
           </button>
 
+          <button
+            matTooltipPosition="below" matTooltip="Simulate bending process"
+            (click)=" simulate()" type="button" class="btn btn-outline-primary  ms-3">
+            <i class="bi bi-play-circle"></i>
+            SIM
+          </button>
+
           <div class="collapse navbar-collapse" id="navbarNav">
           </div>
           <button [cdkCopyToClipboard]="email" type="button" class="btn btn-outline-primary  me-1"
@@ -102,7 +109,8 @@
               <tr>
                 <th>L</th>
                 <th>R</th>
-                <th>A (L)</th>
+                <th>A</th>
+                <th>BL</th>
                 <th>CLR</th>
               </tr>
               </thead>
@@ -110,17 +118,21 @@
                 @for (cnc of pipe_bend_cncs; track cnc) {
                   <tr>
                     <td (click)="onCncTableRowClick1(cnc)"
-                        [ngClass]="cnc.id1===selected_id && selected_id!=0 ? 'table-primary':'' ">{{ cnc.l }}
+                        [ngClass]="cnc.id1===selected_id && selected_id!=-1 ? 'table-primary':'' ">{{ cnc.l }}
                     </td>
                     <td (click)="onCncTableRowClick1(cnc)"
-                        [ngClass]="cnc.id1===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.r }}
+                        [ngClass]="cnc.id1===selected_id && selected_id!=-1? 'table-primary':'' ">{{ cnc.r }}
                     </td>
                     <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">
-                      {{ cnc.a }} ({{cnc.lt}})
+                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">
+                      {{ cnc.a }}
                     </td>
                     <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=0? 'table-primary':'' ">{{ cnc.clr }}
+                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">
+                     {{cnc.lt}}
+                    </td>
+                    <td (click)="onCncTableRowClick2(cnc)"
+                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">{{ cnc.clr }}
                     </td>
                   </tr>
                 }

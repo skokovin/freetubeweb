@@ -24,18 +24,27 @@ import {FirebaseApp} from "@angular/fire/app";
 })
 export class P1Component implements AfterViewInit {
   protected readonly Math = Math;
- private analytics: Analytics=inject(Analytics);
+  private analytics: Analytics = inject(Analytics);
 
 
   //private analytics2 = inject(analyticsInstanceFactory) as AngularFireAnalytics;
-  email="sophistry.no@gmail.com";
+  email = "sophistry.no@gmail.com";
   wa_loaded = false;
   totlen = 0.0;
-  selected_id=0;
+  selected_id = 0;
   pipe_bend_cncs: Array<PipeBendCnc> = new Array<PipeBendCnc>();
-  @ViewChild("fileinput") fileinput!: ElementRef;
+  stp_arr: Uint8Array = new Uint8Array();
+  curr_bend_step= -1;
+  @ViewChild("fileinput")
+  fileinput!: ElementRef;
 
   constructor(public wv: WvService) {
+    wv.stp_file.subscribe(v => {
+      this.stp_arr = v;
+      this.curr_bend_step= -1;
+    });
+
+
     wv.wa_loaded$.subscribe(v => {
       this.wa_loaded = v;
       if (this.wa_loaded) {
@@ -48,19 +57,21 @@ export class P1Component implements AfterViewInit {
       this.pipe_bend_cncs = v;
     });
 
+
+
     WvService.tot_len$.subscribe(v => {
       this.totlen = v;
     });
 
     WvService.selected_id$.subscribe(v => {
-      this.selected_id= v;
+      this.selected_id = v;
     });
   }
 
   ngAfterViewInit(): void {
     this.wv.load_wa();
     logEvent(this.analytics, 'notification_received');
-     //, readonly analytics: AngularFireAnalytics
+    //, readonly analytics: AngularFireAnalytics
     //  this.analytics.logEvent('app_open', {"component"
   }
 
@@ -72,7 +83,7 @@ export class P1Component implements AfterViewInit {
     const files: { [key: string]: File } = this.fileinput.nativeElement.files;
     let file: File = files[0];
     file.arrayBuffer().then(buff => {
-      let arr = new Uint8Array(buff);
+      let arr=new Uint8Array(buff);
       this.wv.load_stp_file(arr);
     })
   }
@@ -81,7 +92,7 @@ export class P1Component implements AfterViewInit {
     if (this.pipe_bend_cncs.length == 0) {
       return 0.0;
     } else {
-      return this.pipe_bend_cncs[0].outd;
+      return this.pipe_bend_cncs[0].outd *2.0;
     }
   }
 
@@ -90,6 +101,7 @@ export class P1Component implements AfterViewInit {
     this.wv.on_select_by_id(cnc.id1);
     console.log(cnc.id1);
   }
+
   onCncTableRowClick2(cnc: PipeBendCnc) {
     //this.selected_id=cnc.id2;
     console.log(cnc.id2);
@@ -106,13 +118,14 @@ export class P1Component implements AfterViewInit {
       link.click();
     }
   }
+
   saveCsvFile() {
     var counter = 1;
     var s = "";
-    if (this.pipe_bend_cncs.length > 0){
+    if (this.pipe_bend_cncs.length > 0) {
       let last = this.pipe_bend_cncs[this.pipe_bend_cncs.length - 1];
 
-      for (var i = 0; i < this.pipe_bend_cncs.length - 1;i++) {
+      for (var i = 0; i < this.pipe_bend_cncs.length - 1; i++) {
         let v = this.pipe_bend_cncs[i];
         s = s + counter + ";";//0
         s = s + v.l + ";";
@@ -137,12 +150,22 @@ export class P1Component implements AfterViewInit {
 
   downloadZipFile() {
     let link = document.createElement("a");
-    link.download = "demos.zip";
-    link.href = "assets/demos/demos.zip";
+    link.href = "demos/demos.zip";
+    link.type = "application/zip";
     link.click();
   }
 
-  downloademoFile(num:string) {
+  simulate() {
+
+    if(this.curr_bend_step== -1 && this.stp_arr.length>0){
+      this.wv.load_unbend_stp_file(this.stp_arr);
+      this.curr_bend_step=this.curr_bend_step+1;
+    }else{
+      this.wv.next_bend_step()
+    }
+  }
+
+  downloademoFile(num: string) {
     this.wv.load_demo_file(num);
   }
 }
