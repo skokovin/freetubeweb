@@ -66,7 +66,6 @@ export class P1Component implements AfterViewInit {
     WvService.remote_bend_step$.subscribe(v=>{
       this.curr_bend_step= v;
       this.selected_id=v;
-      console.log(this.curr_bend_step);
     });
   }
 
