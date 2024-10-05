@@ -16,6 +16,7 @@ canvas {
   font-style: normal;
   font-size: 18px;
   color: cornflowerblue;
+  align-content: center;
 }
 
 .mdc-tooltip__surface {

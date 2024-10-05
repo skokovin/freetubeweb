@@ -44,7 +44,6 @@ export class P1Component implements AfterViewInit {
       this.curr_bend_step= -1;
     });
 
-
     wv.wa_loaded$.subscribe(v => {
       this.wa_loaded = v;
       if (this.wa_loaded) {
@@ -56,15 +55,18 @@ export class P1Component implements AfterViewInit {
     WvService.pipe_bend_cncs$.subscribe(v => {
       this.pipe_bend_cncs = v;
     });
-
-
-
     WvService.tot_len$.subscribe(v => {
       this.totlen = v;
     });
 
     WvService.selected_id$.subscribe(v => {
       this.selected_id = v;
+    });
+
+    WvService.remote_bend_step$.subscribe(v=>{
+      this.curr_bend_step= v;
+      this.selected_id=v;
+      console.log(this.curr_bend_step);
     });
   }
 
@@ -164,6 +166,8 @@ export class P1Component implements AfterViewInit {
       this.wv.next_bend_step()
     }
   }
+
+
 
   downloademoFile(num: string) {
     this.wv.load_demo_file(num);

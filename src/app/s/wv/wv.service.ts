@@ -25,6 +25,7 @@ export class WvService {
   static pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
   static tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
   static selected_id$: BehaviorSubject<number> = new BehaviorSubject(0);
+  static remote_bend_step$: BehaviorSubject<number> = new BehaviorSubject(0);
   static obj_file: Uint8Array = new Uint8Array();
 
   stp_file: BehaviorSubject<Uint8Array>= new BehaviorSubject(new Uint8Array());
@@ -128,5 +129,8 @@ export class WvService {
     WvService.selected_id$.next(id);
   }
 
-
+  private change_bend_step(id: number) {
+    WvService.remote_bend_step$.next(id);
+    //console.log("Change bend step"+id);
+  }
 }
