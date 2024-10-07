@@ -8,7 +8,7 @@
 
 # Node
 /node_modules
-!/node_modules/freetubew/
+!node_modules/freetubew/
 npm-debug.log
 yarn-error.log
 
