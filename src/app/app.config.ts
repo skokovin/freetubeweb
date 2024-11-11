@@ -11,6 +11,7 @@ import {getAnalytics, initializeAnalytics, provideAnalytics, ScreenTrackingServi
 import {config} from "rxjs";
 import {AnalyticsSettings} from "@firebase/analytics";
 import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 
@@ -18,6 +19,7 @@ import {AngularFireAnalyticsModule} from "@angular/fire/compat/analytics";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    NgbModule,
     BrowserAnimationsModule,
     MatTooltipModule,
     provideZoneChangeDetection({eventCoalescing: true}),

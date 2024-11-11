@@ -1,160 +1,261 @@
 <div class="parent pt-2 ps-2 pe-2 pb-2">
-
-
   <div class="div1">
-
-    @if (wa_loaded) {
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <i class="bungee-tint-regular bi bi-magnet-fill"></i>
-          <a class="navbar-brand bungee-tint-regular ms-3">BEND INFO EXTRACTOR</a>
-          <button (click)="LoadStepFile()" type="button" class="btn btn-outline-primary  ms-3"
-                  matTooltipPosition="below" matTooltip="Upload STP file to extract centerline"
-          >
-            <i class="bi bi-folder2-open"></i>
-            STP
-          </button>
-          <button (click)="saveCsvFile()" type="button" class="btn btn-outline-primary  ms-3"
-                  matTooltipPosition="below" matTooltip="Download CSV with CNC operations"
-          >
-            <i class="bi bi-cloud-download"></i>
-            CSV
-          </button>
-          <button
-            matTooltipPosition="below" matTooltip="Download OBJ file to check extracted pipeline"
-            (click)="saveObjFile()" type="button" class="btn btn-outline-primary  ms-3">
-            <i class="bi bi-cloud-download"></i>
-            OBJ
-          </button>
-          <button
-            matTooltipPosition="below" matTooltip="Download all demo original STP files"
-            (click)=" downloadZipFile()" type="button" class="btn btn-outline-primary  ms-3">
-            <i class="bi bi-cloud-download"></i>
-            ZIP
-          </button>
-
-          <button
-            matTooltipPosition="below" matTooltip="Simulate bending process"
-            (click)=" simulate()" type="button" class="btn btn-outline-primary  ms-3">
-            <i class="bi bi-play-circle"></i>
-            SIM
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNav">
-          </div>
-          <button [cdkCopyToClipboard]="email" type="button" class="btn btn-outline-primary  me-1"
-                  matTooltipPosition="below"
-                  matTooltip="Copy My email to clipboard! Please do not hesitate to contact me."
-          >
-            <i class="bi bi-clipboard"></i>
-          </button>
-          <a class="russo-one-regular me-3">{{ email }}</a>
-
-
-          <div class="btn-group" role="group" aria-label="Basic mixed styles example"
-               matTooltipPosition="below" matTooltip="Click to try some demo files."
-          >
-            <button (click)="downloademoFile('1')" type="button" class="btn btn-primary">demo1</button>
-            <button (click)="downloademoFile('2')" type="button" class="btn btn-secondary">demo2</button>
-            <button (click)="downloademoFile('3')" type="button" class="btn btn-success">demo3</button>
-            <button (click)="downloademoFile('4')" type="button" class="btn btn-danger">demo4</button>
-            <button (click)="downloademoFile('5')" type="button" class="btn btn-warning">demo5</button>
-            <button (click)="downloademoFile('6')" type="button" class="btn btn-success">demo6</button>
-            <button (click)="downloademoFile('7')" type="button" class="btn btn-info">demo7</button>
-            <button (click)="downloademoFile('8')" type="button" class="btn btn-light">demo8</button>
-            <button (click)="downloademoFile('9')" type="button" class="btn btn-dark">demo9</button>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <i class="bungee-tint-regular bi bi-magnet-fill"></i>
+        <a class="navbar-brand bungee-tint-regular ms-3">BEND INFO EXTRACTOR</a>
+        <button (click)="new_from_template()" type="button" class="btn btn-outline-primary  ms-3"
+                matTooltipPosition="below" matTooltip="Upload STP file to extract centerline"
+        >
+          <i class="bi bi-calculator"></i>
+          NEW
+        </button>
+        <button (click)="LoadStepFile()" type="button" class="btn btn-outline-primary  ms-3"
+                matTooltipPosition="below" matTooltip="Upload STP file to extract centerline"
+        >
+          <i class="bi bi-folder2-open"></i>
+          STP
+        </button>
+        <button (click)="saveCsvFile()" type="button" class="btn btn-outline-primary  ms-3"
+                matTooltipPosition="below" matTooltip="Download CSV with CNC operations"
+        >
+          <i class="bi bi-cloud-download"></i>
+          CSV
+        </button>
+        <button
+          matTooltipPosition="below" matTooltip="Download OBJ file to check extracted pipeline"
+          (click)="saveObjFile()" type="button" class="btn btn-outline-primary  ms-3">
+          <i class="bi bi-cloud-download"></i>
+          OBJ
+        </button>
+        <button
+          matTooltipPosition="below" matTooltip="Download all demo original STP files"
+          (click)=" downloadZipFile()" type="button" class="btn btn-outline-primary  ms-3">
+          <i class="bi bi-cloud-download"></i>
+          ZIP
+        </button>
+        <button
+          matTooltipPosition="below" matTooltip="Simulate bending process"
+          (click)=" simulate()" type="button" class="btn btn-outline-primary  ms-3">
+          <i class="bi bi-play-circle"></i>
+          SIM
+        </button>
+        <button
+          matTooltipPosition="below" matTooltip="Reverse PipeLine"
+          (click)="reverse()" type="button" class="btn btn-outline-primary  ms-3">
+          <i class="bi bi-play-circle"></i>
+          REV
+        </button>
+        <div class="row ms-2">
+          <div class="col-12">
+            <div class="d-inline-block me-2">L</div>
+            <div class="form-check form-switch d-inline-block">
+              <input [(ngModel)]="dorn_dir_checked" (click)="on_change_dorn()" type="checkbox" class="form-check-input"
+                     id="site_state" checked>
+              <label for="site_state" class="form-check-label">R</label>
+            </div>
           </div>
         </div>
-      </nav>
-    }
-    @else
-    {
-      <div class="russo-one-regular">
-        Loading...
-        <div class="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
+       <div class="collapse navbar-collapse" id="navbarNav"></div>
+
+        <div class="text-sm-center me-2">Speeds:</div>
+        <div class="input-group me-1 " style="width: 5%">
+          <span class="input-group-text ">Move</span>
+          <input type="text" class="form-control" value="{{ bend_parameters.stright_speed }}" (keydown.enter)="stright_speedChanged($event)"/>
         </div>
-        <div class="spinner-border text-secondary" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div class="input-group me-1 " style="width: 5%">
+          <span class="input-group-text ">Rot</span>
+          <input type="text" class="form-control" value="{{ bend_parameters.rotate_speed }}" (keydown.enter)="rotate_speedChanged($event)"/>
         </div>
-        <div class="spinner-border text-success" role="status">
-          <span class="visually-hidden">Loading...</span>
+
+        <div class="input-group me-1 " style="width: 5%">
+          <span class="input-group-text ">Bend</span>
+          <input type="text" class="form-control" value="{{  bend_parameters.angle_speed }}" (keydown.enter)="angle_speedChanged($event)"/>
         </div>
-        <div class="spinner-border text-danger" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div ngbDropdown class="btn-group dropstart">
+          <button ngbDropdownToggle class="btn  btn-secondary btn dropdown-toggle" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-file-earmark-richtext"></i> Demos
+          </button>
+          <ul ngbDropdownMenu class="dropdown-menu">
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('1')" type="button" class="btn btn-primary">demo1</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('2')" type="button" class="btn btn-secondary">demo2</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('3')" type="button" class="btn btn-success">demo3</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('4')" type="button" class="btn btn-danger">demo4</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('5')" type="button" class="btn btn-warning">demo5</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('6')" type="button" class="btn btn-success">demo6</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('7')" type="button" class="btn btn-info">demo7</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('8')" type="button" class="btn btn-light">demo8</button>
+              </div>
+            </li>
+            <li>
+              <div ngbDropdownItem>
+                <button (click)="downloademoFile('9')" type="button" class="btn btn-dark">demo9</button>
+              </div>
+            </li>
+
+
+          </ul>
         </div>
-        <div class="spinner-border text-warning" role="status">
-          <span class="visually-hidden">Loading...</span>
+        <div ngbDropdown class="btn-group dropstart ms-1">
+          <button ngbDropdownToggle class="btn  btn-danger btn dropdown-toggle" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+            About
+          </button>
+          <ul ngbDropdownMenu class="dropdown-menu">
+            <li>
+              <div ngbDropdownItem>
+                <button [cdkCopyToClipboard]="email" type="button" class="btn btn-outline-primary btn-sm  me-1"
+                        matTooltipPosition="below"
+                        matTooltip="Copy My email to clipboard! Please do not hesitate to contact me.">
+                  <i class="bi bi-clipboard"></i>
+                </button>
+                <a class="me-3">{{ email }}</a>
+              </div>
+            </li>
+
+          </ul>
         </div>
-        <div class="spinner-border text-info" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-border text-light" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="spinner-border text-dark" role="status">
-          <span class="visually-hidden">Loading...</span>
-        </div>
+
       </div>
-    }
+    </nav>
   </div>
   <div class="div2">
-    <div class="parent2 ">
-      <div class="div3 container-fluid overflow-auto overflow-x-hidden">
-        @if (wa_loaded) {
-          <div class="row russo-one-regular">
-            D={{ getOutD() }}mm. Lenght = {{ Math.round(totlen) }}mm.
-          </div>
+    <div class="parent2">
+      <div class="div3 container-fluid overflow-auto overflow-x-hidden " style="scrollbar-width: thin">
+        <div class="row russo-one-regular">
           <div class="row">
-            <table class="table table-hover  table-bordered">
-              <thead class="table-success">
-              <tr>
-                <th>L</th>
-                <th>R</th>
-                <th>A</th>
-                <th>BL</th>
-                <th>CLR</th>
-              </tr>
-              </thead>
-              <tbody>
-                @for (cnc of pipe_bend_cncs; track cnc) {
-                  <tr>
-                    <td (click)="onCncTableRowClick1(cnc)"
-                        [ngClass]="cnc.id1===selected_id && selected_id!=-1 ? 'table-primary':'' ">{{ cnc.l }}
-                    </td>
-                    <td (click)="onCncTableRowClick1(cnc)"
-                        [ngClass]="cnc.id1===selected_id && selected_id!=-1? 'table-primary':'' ">{{ cnc.r }}
-                    </td>
-                    <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">
-                      {{ cnc.a }}
-                    </td>
-                    <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">
-                     {{cnc.lt}}
-                    </td>
-                    <td (click)="onCncTableRowClick2(cnc)"
-                        [ngClass]="cnc.id2===selected_id && selected_id!=-1? 'table-primary':'' ">{{ cnc.clr }}
-                    </td>
-                  </tr>
-                }
-
-              </tbody>
-            </table>
+            <div class="col-6">
+              <div class="row">
+                <div class="input-group  p-0 my-1">
+                  <span class="input-group-text ">R</span>
+                  <input type="text" value="{{ getOutD() }}" (keydown.enter)="diamChanged($event)"
+                         class="form-control"/>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="row">
+                <div class="input-group my-1 p-0">
+                  <span class="input-group-text  me-0 ms-0">Tot Len</span>
+                  <input disabled type="text" value="{{ Math.round(totlen) }}" class="form-control"/>
+                </div>
+              </div>
+            </div>
           </div>
-        }
+        </div>
+        <hr class="mt-1 mb-1"/>
+        @for (cnc of pipe_bend_cncs; track cnc) {
+          <div class="row">
+            <div class="col-1 mt-1">
+              <div class="row" style="height: 33%;">
+                <button [disabled]="cnc.clr==0" (click)="on_add_cnc(cnc)" type="button"
+                        class="btn btn-sm btn-info p-0 mb-1"><i class="bi bi-arrow-bar-up"></i></button>
+              </div>
+              <div class="row" style="height: 33%;">
+                <button [disabled]="cnc.clr==0" (click)="on_delete_cnc(cnc)" type="button"
+                        class="btn btn-sm btn-warning p-0 mb-1"><i class="bi bi-trash-fill"></i></button>
+              </div>
+              <div class="row" style="height: 33%;">
+                <button [disabled]="cnc.clr==0" (click)="on_add_cnc(cnc)" type="button"
+                        class="btn btn-sm btn-info p-0 mb-1"><i class="bi bi-arrow-bar-down"></i></button>
+              </div>
+            </div>
+            <div class="col-11">
+              <div class="row">
+                <div class="col-6">
+                  <div class="row" [ngClass]="cnc.id1===selected_id && selected_op==1 ?  'flashbkg':'' ">
+                    <div class="input-group  p-0 my-1">
+                      <span class="input-group-text">Len</span>
+                      <input type="text" [(ngModel)]="cnc.l" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"
+                             class="form-control"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="row" [ngClass]="cnc.id1===selected_id && selected_op==2 ?  'flashbkg':'' ">
+                    <div class="input-group my-1 p-0">
+                      <span class="input-group-text  me-0 ms-0">Rot</span>
+                      <input type="text" [(ngModel)]="cnc.r" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"
+                             class="form-control"/>
+                    </div>
+                  </div>
 
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <div class="row" [ngClass]="cnc.id2===selected_id && selected_op==3 ?  'flashbkg':'' ">
+                    <div class="input-group  p-0  my-1">
+                      <span class="input-group-text">A</span>
+                      <input type="text" [(ngModel)]="cnc.a" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"
+                             class="form-control"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-5">
+                  <div class="row" [ngClass]="cnc.id2===selected_id && selected_op==3 ?  'flashbkg':'' ">
+                    <div class="input-group  p-0 my-1">
+                      <span class="input-group-text">L</span>
+                      <input disabled type="text" [(ngModel)]="cnc.lt" (keydown.enter)="clrChanged()"
+                             (focusout)="clrChanged()"
+                             class="form-control"/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-3">
+                  <div class="row" [ngClass]="cnc.id2===selected_id && selected_op==3 ?  'flashbkg':'' ">
+                    <div class="input-group  p-0 my-1">
+                      <span class="input-group-text">D</span>
+                      <input type="text" [(ngModel)]="cnc.clr" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"
+                             class="form-control"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="mt-1 mb-1"/>
+          </div>
+
+        }
       </div>
       <div class="div4">
         <div class="container-fluid p-0 m-0" #wasm3dwindow id="wasm3dwindow">
-          <!--<canvas #cws_main_p id="cws_main_p" ></canvas>-->
+          <canvas #cws_main_p id="cws_main_p"></canvas>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 <input type="file" #fileinput (change)="onChangeFileInput()" accept=".stp,.step">
-
 

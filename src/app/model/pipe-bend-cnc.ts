@@ -20,3 +20,20 @@ export class PipeBendCnc {
     this.outd = outd;
   }
 }
+
+
+export class BendParameters {
+  stright_speed: number;
+  rotate_speed: number;
+  angle_speed: number;
+
+  constructor(stright_speed: number, rotate_speed: number, angle_speed: number) {
+    this.stright_speed = stright_speed;
+    this.rotate_speed = rotate_speed;
+    this.angle_speed = angle_speed;
+  }
+
+  to_array(): Array<number> {
+    return [this.stright_speed, this.rotate_speed, this.angle_speed];
+  }
+}

@@ -2,8 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import * as WA from 'freetubew';
 import {BehaviorSubject} from "rxjs";
-import {do_bend, read_step_file, read_unbend_file, runrust, select_by_id} from "freetubew";
-import {PipeBendCnc} from "../../model/pipe-bend-cnc";
+//import {do_bend, read_step_file, read_unbend_file, runrust, select_by_id} from "freetubew";
+import {runrust, read_step_file,do_bend,reverse,reverse_dorn,read_lra_commands,change_bend_params,} from "freetubew";
+import {BendParameters, PipeBendCnc} from "../../model/pipe-bend-cnc";
 
 declare global {
   interface Window {
@@ -25,8 +26,9 @@ export class WvService {
   static pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
   static tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
   static selected_id$: BehaviorSubject<number> = new BehaviorSubject(0);
-  static remote_bend_step$: BehaviorSubject<number> = new BehaviorSubject(0);
+  static remote_bend_step$: BehaviorSubject<number> = new BehaviorSubject(-1);
   static obj_file: Uint8Array = new Uint8Array();
+  static bend_parameters$: BehaviorSubject<BendParameters> = new BehaviorSubject(new BendParameters(0.0,0.0,0.0));
 
   stp_file: BehaviorSubject<Uint8Array>= new BehaviorSubject(new Uint8Array());
 
@@ -46,8 +48,8 @@ export class WvService {
   reset() {
     WvService.pipe_bend_cncs$.next(new Array<PipeBendCnc>());
     WvService.tot_len$.next(0.0);
-    WvService.selected_id$.next(-1);
-    this.on_select_by_id(0);
+    //WvService.selected_id$.next(-1);
+    //this.on_select_by_id(0);
     WvService.obj_file=(new Uint8Array());
   }
 
@@ -80,19 +82,46 @@ export class WvService {
   load_unbend_stp_file(arr: Uint8Array) {
     this.reset();
     console.log("LOAD_ARR " + arr.length);
-    read_unbend_file(arr);
+    //read_unbend_file(arr);
   }
 
-  next_bend_step(){
+  send_simulate_cmd(){
     do_bend();
-    if(WvService.selected_id$.value<WvService.pipe_bend_cncs$.value.length*2){
+/*    if(WvService.selected_id$.value<WvService.pipe_bend_cncs$.value.length*2){
       this.on_select_by_id(WvService.selected_id$.value +1);
-    }
+    }*/
   }
 
   on_select_by_id(id: number) {
-    select_by_id(id);
+    //select_by_id(id);
   }
+
+  on_reverse(){
+    reverse();
+  }
+  on_reverse_dorn(){
+    reverse_dorn();
+  }
+   on_upload_lra_commands(cmds:Array<PipeBendCnc>) {
+    var tmp:Array<number>= new Array<number>();
+     cmds.forEach((cmd: PipeBendCnc) => {
+       tmp.push(cmd.id1);
+       tmp.push(cmd.id2);
+       tmp.push(cmd.l);
+       tmp.push(cmd.lt);
+       tmp.push(cmd.r);
+       tmp.push(cmd.a);
+       tmp.push(cmd.clr);
+       tmp.push(cmd.outd);
+     })
+     var out_data: Float32Array =new Float32Array(tmp);
+     read_lra_commands(out_data);
+   }
+
+   on_change_bend_parameters(params:BendParameters){
+     change_bend_params(new Float32Array(params.to_array()));
+   }
+
 
 
   private pipe_bend_ops(cmds: Int32Array) {
@@ -126,11 +155,17 @@ export class WvService {
   }
 
   private selected_by_id(id: number) {
-    WvService.selected_id$.next(id);
+    //WvService.selected_id$.next(id);
   }
 
   private change_bend_step(id: number) {
     WvService.remote_bend_step$.next(id);
     //console.log("Change bend step"+id);
   }
+
+  private bend_settings(params: Float32Array) {
+    WvService.bend_parameters$.next(new BendParameters(params[0],params[1],params[2]));
+  }
+
+
 }
