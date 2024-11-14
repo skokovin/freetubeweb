@@ -28,6 +28,11 @@ export function reverse_dorn(): Promise<void>;
  */
 export function change_bend_params(arr: Float32Array): Promise<void>;
 /**
+ * @param {number} id
+ * @returns {Promise<void>}
+ */
+export function select_by_table(id: number): Promise<void>;
+/**
  * @returns {Promise<void>}
  */
 export function runrust(): Promise<void>;
@@ -42,20 +47,21 @@ export interface InitOutput {
   readonly reverse: () => number;
   readonly reverse_dorn: () => number;
   readonly change_bend_params: (a: number) => number;
+  readonly select_by_table: (a: number) => number;
   readonly runrust: () => number;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
   readonly __wbindgen_export_2: WebAssembly.Table;
   readonly __wbindgen_export_3: WebAssembly.Table;
-  readonly closure544_externref_shim: (a: number, b: number, c: number) => void;
+  readonly closure523_externref_shim: (a: number, b: number, c: number) => void;
   readonly _dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__he7c3e466d2a745b0: (a: number, b: number) => void;
-  readonly closure549_externref_shim: (a: number, b: number, c: number, d: number) => void;
-  readonly closure1347_externref_shim: (a: number, b: number, c: number) => void;
-  readonly closure1751_externref_shim: (a: number, b: number, c: number) => void;
+  readonly closure528_externref_shim: (a: number, b: number, c: number, d: number) => void;
+  readonly closure1326_externref_shim: (a: number, b: number, c: number) => void;
+  readonly closure1730_externref_shim: (a: number, b: number, c: number) => void;
   readonly __wbindgen_free: (a: number, b: number, c: number) => void;
   readonly __wbindgen_exn_store: (a: number) => void;
   readonly __externref_table_alloc: () => number;
-  readonly closure3325_externref_shim: (a: number, b: number, c: number, d: number) => void;
+  readonly closure3304_externref_shim: (a: number, b: number, c: number, d: number) => void;
   readonly __wbindgen_start: () => void;
 }
 

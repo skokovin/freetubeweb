@@ -56,21 +56,24 @@
             </div>
           </div>
         </div>
-       <div class="collapse navbar-collapse" id="navbarNav"></div>
+        <div class="collapse navbar-collapse" id="navbarNav"></div>
 
         <div class="text-sm-center me-2">Speeds:</div>
         <div class="input-group me-1 " style="width: 5%">
           <span class="input-group-text ">Move</span>
-          <input type="text" class="form-control" value="{{ bend_parameters.stright_speed }}" (keydown.enter)="stright_speedChanged($event)"/>
+          <input type="text" class="form-control" value="{{ bend_parameters.stright_speed }}"
+                 (keydown.enter)="stright_speedChanged($event)"/>
         </div>
         <div class="input-group me-1 " style="width: 5%">
           <span class="input-group-text ">Rot</span>
-          <input type="text" class="form-control" value="{{ bend_parameters.rotate_speed }}" (keydown.enter)="rotate_speedChanged($event)"/>
+          <input type="text" class="form-control" value="{{ bend_parameters.rotate_speed }}"
+                 (keydown.enter)="rotate_speedChanged($event)"/>
         </div>
 
         <div class="input-group me-1 " style="width: 5%">
           <span class="input-group-text ">Bend</span>
-          <input type="text" class="form-control" value="{{  bend_parameters.angle_speed }}" (keydown.enter)="angle_speedChanged($event)"/>
+          <input type="text" class="form-control" value="{{  bend_parameters.angle_speed }}"
+                 (keydown.enter)="angle_speedChanged($event)"/>
         </div>
         <div ngbDropdown class="btn-group dropstart">
           <button ngbDropdownToggle class="btn  btn-secondary btn dropdown-toggle" type="button"
@@ -194,7 +197,8 @@
             <div class="col-11">
               <div class="row">
                 <div class="col-6">
-                  <div class="row" [ngClass]="cnc.id1===selected_id && selected_op==1 ?  'flashbkg':'' ">
+                  <div class="row" (click)="select_by_table(cnc.id1)"
+                       [ngClass]="cnc.id1===selected_id && selected_op==1 ?  'flashbkg':'' ">
                     <div class="input-group  p-0 my-1">
                       <span class="input-group-text">Len</span>
                       <input type="text" [(ngModel)]="cnc.l" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"
@@ -215,7 +219,8 @@
               </div>
               <div class="row">
                 <div class="col-4">
-                  <div class="row" [ngClass]="cnc.id2===selected_id && selected_op==3 ?  'flashbkg':'' ">
+                  <div class="row" (click)="select_by_table(cnc.id2)"
+                       [ngClass]="cnc.id2===selected_id && selected_op==3 ?  'flashbkg':'' ">
                     <div class="input-group  p-0  my-1">
                       <span class="input-group-text">A</span>
                       <input type="text" [(ngModel)]="cnc.a" (keydown.enter)="clrChanged()" (focusout)="clrChanged()"

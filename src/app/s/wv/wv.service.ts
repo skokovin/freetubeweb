@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import * as WA from 'freetubew';
 import {BehaviorSubject} from "rxjs";
 //import {do_bend, read_step_file, read_unbend_file, runrust, select_by_id} from "freetubew";
-import {runrust, read_step_file,do_bend,reverse,reverse_dorn,read_lra_commands,change_bend_params,} from "freetubew";
+import {runrust, read_step_file,do_bend,reverse,reverse_dorn,read_lra_commands,change_bend_params,select_by_table,} from "freetubew";
 import {BendParameters, PipeBendCnc} from "../../model/pipe-bend-cnc";
 
 declare global {
@@ -25,10 +25,11 @@ export class WvService {
   wa_loaded$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   static pipe_bend_cncs$: BehaviorSubject<Array<PipeBendCnc>> = new BehaviorSubject(new Array<PipeBendCnc>());
   static tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
-  static selected_id$: BehaviorSubject<number> = new BehaviorSubject(0);
+  static selected_id$: BehaviorSubject<number> = new BehaviorSubject(-1);
   static remote_bend_step$: BehaviorSubject<number> = new BehaviorSubject(-1);
   static obj_file: Uint8Array = new Uint8Array();
   static bend_parameters$: BehaviorSubject<BendParameters> = new BehaviorSubject(new BendParameters(0.0,0.0,0.0));
+
 
   stp_file: BehaviorSubject<Uint8Array>= new BehaviorSubject(new Uint8Array());
 
@@ -91,7 +92,9 @@ export class WvService {
       this.on_select_by_id(WvService.selected_id$.value +1);
     }*/
   }
-
+  select_by_id(id: number){
+    WvService.selected_id$.next(id);
+  }
   on_select_by_id(id: number) {
     //select_by_id(id);
   }
@@ -120,6 +123,9 @@ export class WvService {
 
    on_change_bend_parameters(params:BendParameters){
      change_bend_params(new Float32Array(params.to_array()));
+   }
+   on_select_by_table(id:number){
+     select_by_table(id);
    }
 
 
@@ -154,9 +160,9 @@ export class WvService {
     WvService.obj_file = in_obj_file;
   }
 
-  private selected_by_id(id: number) {
+/*  private selected_by_id(id: number) {
     //WvService.selected_id$.next(id);
-  }
+  }*/
 
   private change_bend_step(id: number) {
     WvService.remote_bend_step$.next(id);

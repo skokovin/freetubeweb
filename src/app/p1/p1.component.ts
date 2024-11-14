@@ -38,7 +38,7 @@ export class P1Component implements AfterViewInit {
   email = "sophistry.no@gmail.com";
   wa_loaded = false;
   totlen = 0.0;
-  selected_id = 0;
+  selected_id = -1;
   selected_op = 0;
   bend_parameters = new BendParameters(0.0, 0.0, 0.0);
   pipe_bend_cncs: Array<PipeBendCnc> = new Array<PipeBendCnc>();
@@ -74,12 +74,15 @@ export class P1Component implements AfterViewInit {
     });
 
     WvService.selected_id$.subscribe(v => {
-
+      this.selected_id = v;
+      if(this.selected_id %2==0) {
+        this.selected_op = 1;
+      }else{
+        this.selected_op = 3;
+      }
     });
 
     WvService.remote_bend_step$.subscribe(v => {
-      //this.curr_bend_step= v;
-      //this.selected_id=v;
       this.tableHighliter(v);
     });
   }
@@ -194,9 +197,9 @@ export class P1Component implements AfterViewInit {
   }
 
   simulate() {
+    this.wv.on_select_by_table(-1);
     this.wv.send_simulate_cmd();
   }
-
   downloademoFile(num: string) {
     this.dorn_dir_checked = true;
     this.wv.load_demo_file(num);
@@ -324,5 +327,9 @@ export class P1Component implements AfterViewInit {
     let v = $event.target.value as number;
     let params = new BendParameters(this.bend_parameters.stright_speed, this.bend_parameters.rotate_speed,v);
     this.wv.on_change_bend_parameters(params);
+  }
+
+  select_by_table(id: number) {
+    this.wv.on_select_by_table(id);
   }
 }
