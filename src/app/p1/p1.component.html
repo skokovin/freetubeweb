@@ -23,10 +23,10 @@
           CSV
         </button>
         <button
-          matTooltipPosition="below" matTooltip="Download OBJ file to check extracted pipeline"
-          (click)="saveObjFile()" type="button" class="btn btn-outline-primary  ms-3">
+          matTooltipPosition="below" matTooltip="Download recreated SOLID stp file"
+          (click)="stp_request()" type="button" class="btn btn-outline-primary  ms-3">
           <i class="bi bi-cloud-download"></i>
-          OBJ
+          STP
         </button>
         <button
           matTooltipPosition="below" matTooltip="Download all demo original STP files"
@@ -262,5 +262,5 @@
     </div>
   </div>
 </div>
-<input type="file" #fileinput (change)="onChangeFileInput()" accept=".stp,.step">
+<!--<input type="file" #fileinput (change)="onChangeFileInput()" accept=".stp,.step">-->
 

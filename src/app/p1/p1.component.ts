@@ -85,8 +85,14 @@ export class P1Component implements AfterViewInit {
     WvService.remote_bend_step$.subscribe(v => {
       this.tableHighliter(v);
     });
-  }
 
+    WvService.obj_file$.subscribe(v => {
+      this.saveStpFile(v);
+    });
+  }
+  clrChanged() {
+    this.wv.on_upload_lra_commands(this.pipe_bend_cncs);
+  }
   ngAfterViewInit(): void {
     this.wv.load_wa();
 
@@ -149,13 +155,13 @@ export class P1Component implements AfterViewInit {
     this.wv.on_select_by_id(cnc.id2);
   }
 
-  saveObjFile() {
-    if (WvService.obj_file.length > 0) {
-      console.log("Ready to save obj " + WvService.obj_file.length);
-      var blob = new Blob([WvService.obj_file], {type: 'text/plain'});
+  saveStpFile(in_obj_file: Uint8Array) {
+    if (in_obj_file.length > 0) {
+      console.log("Ready to save obj " + in_obj_file.length);
+      var blob = new Blob([in_obj_file], {type: 'text/plain'});
       var link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.download = "result.obj";
+      link.download = "result.stp";
       link.click();
     }
   }
@@ -214,10 +220,9 @@ export class P1Component implements AfterViewInit {
     this.wv.on_reverse_dorn();
   }
 
-  clrChanged() {
-    this.wv.on_upload_lra_commands(this.pipe_bend_cncs);
+  stp_request() {
+    this.wv.on_stp_request(this.pipe_bend_cncs);
   }
-
   on_delete_cnc(cnc: PipeBendCnc) {
     let new_cncs: Array<PipeBendCnc> = new Array<PipeBendCnc>();
     var counter = 0;

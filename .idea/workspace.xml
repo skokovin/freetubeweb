@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="selection implemented">
+    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="implemented load STP">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
@@ -55,7 +55,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/4/reglab-angular&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebstormProjects/digitalyard&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -190,7 +190,12 @@
       <workItem from="1731438218987" duration="35000" />
       <workItem from="1731438330642" duration="3382000" />
       <workItem from="1731478375277" duration="5140000" />
-      <workItem from="1731563150842" duration="9816000" />
+      <workItem from="1731563150842" duration="9893000" />
+      <workItem from="1731654074326" duration="66000" />
+      <workItem from="1731654148623" duration="594000" />
+      <workItem from="1731658783483" duration="5881000" />
+      <workItem from="1731757704651" duration="524000" />
+      <workItem from="1731857144337" duration="3150000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -320,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731350107184</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="selection implemented">
+      <option name="closed" value="true" />
+      <created>1731589136066</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1731589136066</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -340,7 +353,8 @@
     <MESSAGE value="animation2" />
     <MESSAGE value="animation3" />
     <MESSAGE value="selection implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="selection implemented" />
+    <MESSAGE value="implemented load STP" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented load STP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

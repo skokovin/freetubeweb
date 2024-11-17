@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import * as WA from 'freetubew';
 import {BehaviorSubject} from "rxjs";
 //import {do_bend, read_step_file, read_unbend_file, runrust, select_by_id} from "freetubew";
-import {runrust, read_step_file,do_bend,reverse,reverse_dorn,read_lra_commands,change_bend_params,select_by_table,} from "freetubew";
+import {runrust, read_step_file,do_bend,reverse,reverse_dorn,read_lra_commands,change_bend_params,select_by_table,stp_file_request,} from "freetubew";
 import {BendParameters, PipeBendCnc} from "../../model/pipe-bend-cnc";
 
 declare global {
@@ -27,7 +27,9 @@ export class WvService {
   static tot_len$: BehaviorSubject<number> = new BehaviorSubject(0.0);
   static selected_id$: BehaviorSubject<number> = new BehaviorSubject(-1);
   static remote_bend_step$: BehaviorSubject<number> = new BehaviorSubject(-1);
-  static obj_file: Uint8Array = new Uint8Array();
+
+  static obj_file$: BehaviorSubject<Uint8Array> = new BehaviorSubject(new Uint8Array());
+
   static bend_parameters$: BehaviorSubject<BendParameters> = new BehaviorSubject(new BendParameters(0.0,0.0,0.0));
 
 
@@ -51,7 +53,7 @@ export class WvService {
     WvService.tot_len$.next(0.0);
     //WvService.selected_id$.next(-1);
     //this.on_select_by_id(0);
-    WvService.obj_file=(new Uint8Array());
+    //WvService.obj_file=(new Uint8Array());
   }
 
   run_app() {
@@ -127,7 +129,21 @@ export class WvService {
    on_select_by_table(id:number){
      select_by_table(id);
    }
-
+  on_stp_request(cmds:Array<PipeBendCnc>){
+    var tmp:Array<number>= new Array<number>();
+    cmds.forEach((cmd: PipeBendCnc) => {
+      tmp.push(cmd.id1);
+      tmp.push(cmd.id2);
+      tmp.push(cmd.l);
+      tmp.push(cmd.lt);
+      tmp.push(cmd.r);
+      tmp.push(cmd.a);
+      tmp.push(cmd.clr);
+      tmp.push(cmd.outd);
+    })
+    var out_data: Float32Array =new Float32Array(tmp);
+    stp_file_request(out_data);
+  }
 
 
   private pipe_bend_ops(cmds: Int32Array) {
@@ -155,9 +171,9 @@ export class WvService {
     WvService.tot_len$.next(totlen);
   }
 
-  private pipe_obj_file(in_obj_file: Uint8Array) {
+  private pipe_stp_file(in_obj_file: Uint8Array) {
     //console.log("OBJ FILE "+in_obj_file.length);
-    WvService.obj_file = in_obj_file;
+    WvService.obj_file$.next(in_obj_file);
   }
 
 /*  private selected_by_id(id: number) {
