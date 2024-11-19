@@ -47,6 +47,8 @@ export class P1Component implements AfterViewInit {
   @ViewChild("fileinput")
   fileinput!: ElementRef;
 
+  //@ViewChild("cws_main_p")
+  //cnvs!: ElementRef<HTMLCanvasElement>;
   constructor(public wv: WvService) {
     wv.stp_file.subscribe(v => {
       this.stp_arr = v;
@@ -94,6 +96,8 @@ export class P1Component implements AfterViewInit {
     this.wv.on_upload_lra_commands(this.pipe_bend_cncs);
   }
   ngAfterViewInit(): void {
+
+    //let ctx=this.cnvs.nativeElement.getContext('webgpu');
     this.wv.load_wa();
 
     logEvent(this.analytics, 'notification_received');

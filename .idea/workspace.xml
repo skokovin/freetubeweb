@@ -6,18 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="implemented load STP">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/s/wv/wv.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/s/wv/wv.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +44,7 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
     &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.Unnamed.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -78,6 +72,9 @@
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200/">
       <method v="2" />
     </configuration>
+    <configuration name="Unnamed" type="JavascriptDebugType" nameIsGenerated="true" uri="http://192.168.0.108:80/">
+      <method v="2" />
+    </configuration>
     <configuration name="Angular CLI Server" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -90,6 +87,7 @@
     </configuration>
     <list>
       <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="JavaScript Debug.Unnamed" />
       <item itemvalue="npm.Angular CLI Server" />
     </list>
   </component>
@@ -195,7 +193,11 @@
       <workItem from="1731654148623" duration="594000" />
       <workItem from="1731658783483" duration="5881000" />
       <workItem from="1731757704651" duration="524000" />
-      <workItem from="1731857144337" duration="3150000" />
+      <workItem from="1731857144337" duration="3502000" />
+      <workItem from="1731866835250" duration="1643000" />
+      <workItem from="1731918119904" duration="4165000" />
+      <workItem from="1731998555006" duration="593000" />
+      <workItem from="1732000814101" duration="668000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -333,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731589136066</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="implemented load STP">
+      <option name="closed" value="true" />
+      <created>1731862698777</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731862698777</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
