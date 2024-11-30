@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="STP dialogue has been committed">
-      <change afterPath="$PROJECT_DIR$/public/demos/10.stp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demos/11.stp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demos/12.stp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demos/13.stp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demos/14.stp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/demos/15.stp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/demos/demos.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/demos/demos.zip" afterDir="false" />
+    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="STP new files added">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
@@ -19,7 +12,6 @@
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/demos/demos.zip" beforeDir="false" afterPath="$PROJECT_DIR$/public/demos/demos.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,27 +42,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "JavaScript Debug.Angular Application.executor": "Debug",
-    "JavaScript Debug.Unnamed.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/WebstormProjects/freetubew/public/demos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
-    "ts.external.directory.path": "D:\\WebstormProjects\\freetubew\\node_modules\\typescript\\lib",
-    "ts.rename.search.for.js.occurrences": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Debug&quot;,
+    &quot;JavaScript Debug.Unnamed.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WebstormProjects/freetubew/public/demos&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\WebstormProjects\\freetubew\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.rename.search.for.js.occurrences&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\WebstormProjects\freetubew\public\demos" />
@@ -209,7 +201,9 @@
       <workItem from="1731918119904" duration="4165000" />
       <workItem from="1731998555006" duration="593000" />
       <workItem from="1732000814101" duration="2610000" />
-      <workItem from="1732880974338" duration="3887000" />
+      <workItem from="1732880974338" duration="4771000" />
+      <workItem from="1732905632494" duration="372000" />
+      <workItem from="1732975956075" duration="3030000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -363,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732001763307</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="STP new files added">
+      <option name="closed" value="true" />
+      <created>1732901966709</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1732901966709</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +387,8 @@
     <MESSAGE value="selection implemented" />
     <MESSAGE value="implemented load STP" />
     <MESSAGE value="STP dialogue has been committed" />
-    <option name="LAST_COMMIT_MESSAGE" value="STP dialogue has been committed" />
+    <MESSAGE value="STP new files added" />
+    <option name="LAST_COMMIT_MESSAGE" value="STP new files added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
