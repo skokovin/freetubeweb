@@ -1,6 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
+export const runrust: () => any;
 export const read_step_file: (a: any) => any;
 export const read_lra_commands: (a: any) => any;
 export const do_bend: () => any;
@@ -9,7 +10,6 @@ export const reverse_dorn: () => any;
 export const change_bend_params: (a: any) => any;
 export const select_by_table: (a: number) => any;
 export const stp_file_request: (a: any) => any;
-export const runrust: () => any;
 export const __externref_table_alloc: () => number;
 export const __wbindgen_export_1: WebAssembly.Table;
 export const __wbindgen_exn_store: (a: number) => void;

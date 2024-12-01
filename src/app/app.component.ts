@@ -5,11 +5,10 @@ import {P1Component} from "./p1/p1.component";
 //import * as console from "node:console";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, P1Component],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [RouterOutlet, P1Component],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'BEND INFO EXTRACTOR';

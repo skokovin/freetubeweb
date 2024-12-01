@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="STP new files added">
+    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="fixed max tor bend 500mm">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/polyfills-QBXW4TBJ.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +207,9 @@
       <workItem from="1732000814101" duration="2610000" />
       <workItem from="1732880974338" duration="4771000" />
       <workItem from="1732905632494" duration="372000" />
-      <workItem from="1732975956075" duration="3030000" />
+      <workItem from="1732975956075" duration="3484000" />
+      <workItem from="1733065610491" duration="794000" />
+      <workItem from="1733080076974" duration="1116000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -365,7 +371,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732901966709</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fixed max tor bend 500mm">
+      <option name="closed" value="true" />
+      <created>1732983874002</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732983874002</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,7 +402,8 @@
     <MESSAGE value="implemented load STP" />
     <MESSAGE value="STP dialogue has been committed" />
     <MESSAGE value="STP new files added" />
-    <option name="LAST_COMMIT_MESSAGE" value="STP new files added" />
+    <MESSAGE value="fixed max tor bend 500mm" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed max tor bend 500mm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

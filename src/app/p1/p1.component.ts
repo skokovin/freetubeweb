@@ -10,22 +10,20 @@ import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "
 
 
 @Component({
-  selector: 'app-p1',
-  standalone: true,
-  imports: [
-    NgClass,
-    CdkCopyToClipboard,
-    MatTooltip,
-    FormsModule,
-    NgbDropdownItem,
-    NgbDropdownMenu,
-    NgbDropdown,
-    NgbDropdownToggle,
-
-  ],
-  encapsulation: ViewEncapsulation.None,
-  templateUrl: './p1.component.html',
-  styleUrl: './p1.component.css'
+    selector: 'app-p1',
+    imports: [
+        NgClass,
+        CdkCopyToClipboard,
+        MatTooltip,
+        FormsModule,
+        NgbDropdownItem,
+        NgbDropdownMenu,
+        NgbDropdown,
+        NgbDropdownToggle,
+    ],
+    encapsulation: ViewEncapsulation.None,
+    templateUrl: './p1.component.html',
+    styleUrl: './p1.component.css'
 })
 export class P1Component implements AfterViewInit {
   dorn_dir_checked: boolean = true;

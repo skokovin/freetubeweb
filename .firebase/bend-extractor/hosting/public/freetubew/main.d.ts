@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+export function runrust(): Promise<void>;
 export function read_step_file(arr: Uint8Array): Promise<void>;
 export function read_lra_commands(arr: Float32Array): Promise<void>;
 export function do_bend(): Promise<void>;
@@ -8,12 +9,12 @@ export function reverse_dorn(): Promise<void>;
 export function change_bend_params(arr: Float32Array): Promise<void>;
 export function select_by_table(id: number): Promise<void>;
 export function stp_file_request(arr: Float32Array): Promise<void>;
-export function runrust(): Promise<void>;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
+  readonly runrust: () => any;
   readonly read_step_file: (a: any) => any;
   readonly read_lra_commands: (a: any) => any;
   readonly do_bend: () => any;
@@ -22,7 +23,6 @@ export interface InitOutput {
   readonly change_bend_params: (a: any) => any;
   readonly select_by_table: (a: number) => any;
   readonly stp_file_request: (a: any) => any;
-  readonly runrust: () => any;
   readonly __externref_table_alloc: () => number;
   readonly __wbindgen_export_1: WebAssembly.Table;
   readonly __wbindgen_exn_store: (a: number) => void;
