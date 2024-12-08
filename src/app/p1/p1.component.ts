@@ -7,6 +7,7 @@ import {MatTooltip} from "@angular/material/tooltip";
 import {Analytics, logEvent} from "@angular/fire/analytics";
 import {FormsModule} from "@angular/forms";
 import {NgbDropdown, NgbDropdownItem, NgbDropdownMenu, NgbDropdownToggle} from "@ng-bootstrap/ng-bootstrap";
+import {Meta, Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -47,21 +48,27 @@ export class P1Component implements AfterViewInit {
 
   //@ViewChild("cws_main_p")
   //cnvs!: ElementRef<HTMLCanvasElement>;
-  constructor(public wv: WvService) {
+  constructor(public wv: WvService, private meta:Meta, private title:Title) {
+
+    this.meta.addTags([
+      {name:'description', content:'Extract pipe manufacturing information and bend data free online'},
+      {name:'keywords', content:'pipe, bend, cnc, csv, stp, step, free, online, extract'},
+      {name:'author', content:'s.kokovin@gmail.com'},
+    ]);
+
+    this.title.setTitle("Extract pipe manufacturing information and bend data free online");
+
     wv.stp_file.subscribe(v => {
       this.stp_arr = v;
       this.curr_bend_step = -1;
     });
-
     wv.wa_loaded$.subscribe(v => {
       this.wa_loaded = v;
       if (this.wa_loaded) {
         this.wv.run_app();
         this.downloademoFile('5');
-
       }
     });
-
     WvService.bend_parameters$.subscribe(v => {
       this.bend_parameters = v;
     });
@@ -141,7 +148,7 @@ export class P1Component implements AfterViewInit {
     if (this.pipe_bend_cncs.length == 0) {
       return 0.0;
     } else {
-      return this.pipe_bend_cncs[0].outd;
+      return this.pipe_bend_cncs[0].outd *2.0;
     }
   }
 
