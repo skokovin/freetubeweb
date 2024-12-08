@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="bump to 19.3">
+    <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="add meta tags">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/p1/p1.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/p1/p1.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +206,7 @@
       <workItem from="1733125749094" duration="2150000" />
       <workItem from="1733241295155" duration="4609000" />
       <workItem from="1733605449404" duration="890000" />
-      <workItem from="1733668829057" duration="2013000" />
+      <workItem from="1733668829057" duration="3573000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -393,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733081248130</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="add meta tags">
+      <option name="closed" value="true" />
+      <created>1733671076732</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1733671076732</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +418,8 @@
     <MESSAGE value="fixed max tor bend 500mm" />
     <MESSAGE value="bump to 19" />
     <MESSAGE value="bump to 19.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="bump to 19.3" />
+    <MESSAGE value="add meta tags" />
+    <option name="LAST_COMMIT_MESSAGE" value="add meta tags" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -34,7 +34,7 @@ export const appConfig: ApplicationConfig = {
       "appId": "1:355924148512:web:a8a9bd76870726afa5d745",
       "storageBucket": "bend-extractor.appspot.com",
       "apiKey": "AIzaSyDYhwXoAF20OhHB6hil8-Kj5Z63oE91ZOc",
-      "authDomain": "bend-extractor.firebaseapp.com",
+      "authDomain": "bend-extractor.web.app", //"authDomain": "bend-extractor.firebaseapp.com",
       "messagingSenderId": "355924148512",
       "measurementId": "G-JTPQYBPCSY"
     })),
@@ -43,38 +43,3 @@ export const appConfig: ApplicationConfig = {
   ]
 };
 
-/*
-export const appConfig: ApplicationConfig = {
-  providers: [
-    BrowserAnimationsModule,
-    MatTooltipModule,
-    provideZoneChangeDetection({eventCoalescing: true}),
-    provideRouter(routes),
-    provideHttpClient(withFetch()),
-    {
-      provide: ErrorHandler,
-      useClass: AppComponent
-    },
-    provideFirebaseApp(() => initializeApp({
-      "projectId": "bend-extractor",
-      "appId": "1:355924148512:web:a8a9bd76870726afa5d745",
-      "storageBucket": "bend-extractor.appspot.com",
-      "apiKey": "AIzaSyDYhwXoAF20OhHB6hil8-Kj5Z63oE91ZOc",
-      "authDomain": "bend-extractor.firebaseapp.com",
-      "messagingSenderId": "355924148512",
-      "measurementId": "G-JTPQYBPCSY"
-    })),
-    provideAnalytics(() => initializeAnalytics(inject(FirebaseApp),
-      {
-        config: {
-          cookie_domain: window.location.hostname,
-          cookie_flags: "SameSite=None;Secure"
-        }
-      }
-    )),
-    ScreenTrackingService,
-
-  ]
-};
-
-*/
