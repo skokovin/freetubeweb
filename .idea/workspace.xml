@@ -6,9 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="971f5a33-74a1-40cf-aca0-6a17cf69c3a0" name="Changes" comment="add meta tags">
       <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/bend-extractor/hosting/public/freetubew/main_bg.wasm.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.LmZpcmViYXNlXGJlbmQtZXh0cmFjdG9yXGhvc3Rpbmc.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +59,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;D:\\WebstormProjects\\freetubew\\node_modules\\typescript\\lib&quot;,
     &quot;ts.rename.search.for.js.occurrences&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -93,7 +99,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-4027fba43365-JavaScript-WS-251.18673.31" />
       </set>
     </attachedChunks>
   </component>
@@ -206,7 +212,22 @@
       <workItem from="1733125749094" duration="2150000" />
       <workItem from="1733241295155" duration="4609000" />
       <workItem from="1733605449404" duration="890000" />
-      <workItem from="1733668829057" duration="3573000" />
+      <workItem from="1733668829057" duration="4059000" />
+      <workItem from="1733932018192" duration="169000" />
+      <workItem from="1733932387658" duration="772000" />
+      <workItem from="1735050847859" duration="5000" />
+      <workItem from="1736860155046" duration="3921000" />
+      <workItem from="1736924860018" duration="1286000" />
+      <workItem from="1736926171724" duration="30000" />
+      <workItem from="1737442579044" duration="4217000" />
+      <workItem from="1737647688089" duration="1512000" />
+      <workItem from="1737820702259" duration="600000" />
+      <workItem from="1737910156177" duration="738000" />
+      <workItem from="1737918263830" duration="236000" />
+      <workItem from="1737961774147" duration="2971000" />
+      <workItem from="1738081925047" duration="61000" />
+      <workItem from="1738254184901" duration="238000" />
+      <workItem from="1738254436132" duration="630000" />
     </task>
     <task id="LOCAL-00001" summary="enable select">
       <option name="closed" value="true" />
@@ -392,7 +413,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733671076732</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="add meta tags">
+      <option name="closed" value="true" />
+      <created>1733680081155</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1733680081155</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
