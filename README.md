@@ -1,27 +1,40 @@
-# Freetubew
+# PipeLine Extractor; CNC bend simulator; Angular UI;
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
+Software for pipe bending machines. Creating a CNC program for the machine requires a pipeline. Typically, a 3D model of a pipe is provided by the customer in the STEP file format. STEP, which adheres to the ISO 10303-21 standard, can contain a wide variety of geometric data structures. The primary challenge is recognizing these data structures to accurately extract pipeline information.
 
-## Development server
+![Demo GIF](https://github.com/skokovin/freetubepc/blob/3b6a56515852d859082e167e77f0aa98fd9a6474/src/files/bend.gif?raw=true)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Basic Tools
 
-## Code scaffolding
+Rust - philosophy to do it right. </br>
+Truck - CAGD, STEP. </br>
+WGPU - The brilliant cross-platform, safe, pure-Rust graphics API.</br>
+WINIT - for window handling.</br>
+WASM for window handling.</br>
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Disclaimer
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+It is experemental and not finished yet.
 
-## Running unit tests
+## License
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+All Reports in this Repository are licensed by Contributors
+under the
+[W3C Software and Document License](http://www.w3.org/Consortium/Legal/2015/copyright-software-and-document).
 
-## Running end-to-end tests
+Contributions to Specifications are made under the
+[W3C CLA](https://www.w3.org/community/about/agreements/cla/).
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Contributions to Test Suites are made under the
+[W3C 3-clause BSD License](https://www.w3.org/Consortium/Legal/2008/03-bsd-license.html)
 
-## Further help
+Contributions to Software are made under the
+[GPU for the Web 3-Clause BSD License](https://github.com/gpuweb/admin/blob/master/SourceCodeLicense/LICENSE.txt)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Contacts
+
+s.kokovin@gmail.com</br>
+[CV](https://skokovin.github.io/).
+
